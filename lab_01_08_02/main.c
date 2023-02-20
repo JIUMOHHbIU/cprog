@@ -1,14 +1,6 @@
 #include <stdio.h>
 
-#define mask_1 0b10101010101010101010101010101010
-#define mask_2 0b01010101010101010101010101010101
-
-void to_bin(unsigned int value)
-{
-    if (!value) return;
-    to_bin(value / 2);
-    printf("%d", value % 2);
-}
+unsigned int cyclic_shift_number(unsigned int, int);
 
 int main(void)
 {
@@ -16,18 +8,22 @@ int main(void)
     int n;
     scanf("%u%d", &number, &n);
 
-    n = (n % 32 + 32) % 32;
-    unsigned int new_number = (number << n) | (number >> (32 - n));
+    unsigned int new_number = cyclic_shift_number(number, n);
 
-    if (new_number)
+    for (int i = 31; i > -1; i--)
     {
-        to_bin(new_number);
-    }
-    else
-    {
-        printf("0");
+        printf("%d", (new_number >> i) % 2);
     }
     printf("\n");
 
     return 0;
 }
+
+unsigned int cyclic_shift_number(unsigned int number, int n)
+{
+    n = (n % 32 + 32) % 32;
+    unsigned int new_number = (number << n) | (number >> (32 - n));
+
+    return new_number;
+}
+
