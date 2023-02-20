@@ -9,9 +9,10 @@ int main(void)
 {
     int a;
     unsigned n;
+    char tmp;
     int rc = ERR_NO;
 
-    if (scanf("%d%u", &a, &n) != 2)
+    if ((((rc = scanf("%d%u%c", &a, &n, &tmp)) != 2 && rc != EOF) || tmp != '\n'))
     {
         rc = ERR_INPUT;
     }
