@@ -25,5 +25,5 @@ double evaluate_approx(double x, double epsilon, double fx)
     double result = 0, a_i = 1;
     for (int i = 1; fabs(a_i) >= epsilon; result += a_i, a_i *= x / i, ++i);
 
-    return result;
+    return result + a_i;
 }
