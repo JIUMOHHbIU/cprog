@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <math.h>
+
+#define ERR_NO 0
+#define ERR_INPUT 1
+#define ERR_IMPOSSIBLE_TRIANGLE 2
+
+#define EPS 1e-6
+
+int type_of_triangle(double, double, double, double, double, double);
+
+double distance(double, double, double, double);
+
+void swap(double *, double *);
+
+int main(void)
+{
+     double xa, ya, xb, yb, xc, yc;
+    int rc = ERR_NO;
+
+    if (scanf("%lf%lf%lf%lf%lf%lf", &xa, &ya, &xb, &yb, &xc, &yc) != 6)
+    {
+        rc = ERR_INPUT;
+    }
+
+    int type = type_of_triangle(xa, ya, xb, yb, xc, yc);
+    if (type == -1)
+        rc = ERR_IMPOSSIBLE_TRIANGLE;
+
+    if (rc == ERR_NO)
+    {
+        printf("%d", type);
+    }
+
+    return rc;
+}
+
+void swap(double *a, double *b)
+{
+    double t = *a;
+    a = b;
+    b = &t;
+}
+
+int type_of_triangle(double xa, double ya, double xb, double yb, double xc, double yc)
+{
+    int type;
+
+    double ba, cb, ac;
+    ba = distance(xb, yb, xa, ya);
+    cb = distance(xc, yc, xb, yb);
+    ac = distance(xa, ya, xc, yc);
+
+    if (ba > cb) swap(&ba, &cb);
+    if (cb > ac) swap(&cb, &ac);
+    if (ba > cb) swap(&ba, &cb);
+
+    if (fabs(ba + cb - ac) < EPS)
+    {
+        type = -1;
+    }
+    else
+    {
+        if (fabs(ac * ac - ba * ba - cb * cb) < EPS)
+        {
+            type = 1;
+        }
+        else if(ac * ac > ba * ba - cb * cb)
+        {
+            type = 2;
+        }
+        else
+        {
+            type = 0;
+        }
+    }
+
+    return type;
+}
+
+double distance(double xa, double ya, double xb, double yb)
+{
+    double result = sqrt((xa - xb) * (xa - xb) + (ya - yb) * (ya - yb));
+
+    return result;
+}

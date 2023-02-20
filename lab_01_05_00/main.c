@@ -5,18 +5,17 @@
 
 int my_pow(int, unsigned);
 
-int input_values(int *number, unsigned int *n);
-
 int main(void)
 {
     int a;
     unsigned n;
     int rc = ERR_NO;
 
-    if (input_values(&a, &n))
+    if (scanf("%d%u", &a, &n) != 2)
     {
         rc = ERR_INPUT;
     }
+
     if (rc == ERR_NO)
     {
         printf("%d", my_pow(a, n));
@@ -34,14 +33,4 @@ int my_pow(int a, unsigned n)
     }
 
     return result;
-}
-
-int input_values(int *number, unsigned int *n)
-{
-    char tmp;
-    int rc;
-
-    int success = (((rc = scanf("%d%u%c", number, n, &tmp)) != 3 && rc != EOF) || (tmp != '\n' && tmp != '\r'));
-
-    return success;
 }
