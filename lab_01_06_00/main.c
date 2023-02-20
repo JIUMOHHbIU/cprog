@@ -51,8 +51,10 @@ int type_of_triangle(double xa, double ya, double xb, double yb, double xc, doub
     cb = distance(xc, yc, xb, yb);
     ac = distance(xa, ya, xc, yc);
 
-    if (ba > cb) swap(&ba, &cb);
-    if (ac > cb) swap(&cb, &ac);
+    if (ba > cb)
+        swap(&ba, &cb);
+    if (ac > cb)
+        swap(&cb, &ac);
 
     if (fabs(ba + ac - cb) < EPS)
     {
@@ -64,7 +66,7 @@ int type_of_triangle(double xa, double ya, double xb, double yb, double xc, doub
         {
             type = 1;
         }
-        else if(cb * cb > ba * ba - ac * ac)
+        else if (cb * cb > ba * ba + ac * ac)
         {
             type = 2;
         }

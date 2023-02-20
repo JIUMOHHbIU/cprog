@@ -11,7 +11,7 @@ int main(void)
     long long int n;
     int rc = ERR_NO;
 
-    if ((scanf("%lld%lld", &a, &n) != 2) || (n < 0))
+    if ((scanf("%lld%lld", &a, &n) != 2) || (n <= 0))
     {
         rc = ERR_INPUT;
     }
