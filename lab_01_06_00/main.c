@@ -23,7 +23,11 @@ int main(void)
         rc = ERR_INPUT;
     }
 
-    int type = type_of_triangle(xa, ya, xb, yb, xc, yc);
+    int type = -1;
+    if (rc == ERR_NO)
+    {
+        type = type_of_triangle(xa, ya, xb, yb, xc, yc);
+    }
     if (type == -1)
         rc = ERR_IMPOSSIBLE_TRIANGLE;
 

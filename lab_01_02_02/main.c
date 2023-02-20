@@ -12,6 +12,6 @@ int main(void)
         sqrt(pow(yc - yb, 2) + pow(xc - xb, 2)) +
         sqrt(pow(ya - yc, 2) + pow(xa - xc, 2));
 
-    printf("Периметр треугольника: %lf", circum);
+    printf("Length of triangle: %lf\n", circum);
     return ERR_NO;
 }
