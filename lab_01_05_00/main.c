@@ -5,9 +5,7 @@
 
 int my_pow(int, unsigned);
 
-int input_integer(int *number);
-
-int input_unsigned_integer(unsigned int *number);
+int input_values(int *number, unsigned int *n);
 
 int main(void)
 {
@@ -15,16 +13,9 @@ int main(void)
     unsigned n;
     int rc = ERR_NO;
 
-    if (input_integer(&a))
+    if (input_values(&a, &n))
     {
         rc = ERR_INPUT;
-    }
-    if (rc == ERR_NO)
-    {
-        if (input_unsigned_integer(&n))
-        {
-            rc = ERR_INPUT;
-        }
     }
 
     if (rc == ERR_NO)
@@ -46,22 +37,12 @@ int my_pow(int a, unsigned n)
     return result;
 }
 
-int input_integer(int *number)
+int input_values(int *number, unsigned int *n)
 {
     char tmp;
     int rc;
 
-    int success = (((rc = scanf("%d%c", number, &tmp)) != 2 && rc != EOF) || tmp != '\n');
-
-    return success;
-}
-
-int input_unsigned_integer(unsigned *number)
-{
-    char tmp;
-    int rc;
-
-    int success = (((rc = scanf("%u%c", number, &tmp)) != 2 && rc != EOF) || tmp != '\n');
+    int success = (((rc = scanf("%d%u%c", number, n, &tmp)) != 3 && rc != EOF) || tmp != '\n');
 
     return success;
 }
