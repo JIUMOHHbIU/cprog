@@ -2,14 +2,24 @@
 
 #define ERR_NO 0
 
-unsigned my_pow(unsigned, unsigned);
+int my_pow(int, unsigned);
 
 int main(void)
 {
-    unsigned a, n;
-    scanf("%u%u", &a, &n);
+    int a;
+    unsigned n;
+    scanf("%d%u", &a, &n);
 
-    printf("%u", my_pow(a, n));
+    printf("%d", my_pow(a, n));
 }
 
-unsigned my_pow(unsigned a, unsigned )
+int my_pow(int a, unsigned n)
+{
+    int result = 1;
+    for (int i = 0; i < n; ++i)
+    {
+        result *= a;
+    }
+
+    return result;
+}
