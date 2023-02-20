@@ -15,7 +15,7 @@ void swap(double *, double *);
 
 int main(void)
 {
-     double xa, ya, xb, yb, xc, yc;
+    double xa, ya, xb, yb, xc, yc;
     int rc = ERR_NO;
 
     if (scanf("%lf%lf%lf%lf%lf%lf", &xa, &ya, &xb, &yb, &xc, &yc) != 6)
@@ -38,8 +38,8 @@ int main(void)
 void swap(double *a, double *b)
 {
     double t = *a;
-    a = b;
-    b = &t;
+    *a = *b;
+    *b = t;
 }
 
 int type_of_triangle(double xa, double ya, double xb, double yb, double xc, double yc)
@@ -52,20 +52,19 @@ int type_of_triangle(double xa, double ya, double xb, double yb, double xc, doub
     ac = distance(xa, ya, xc, yc);
 
     if (ba > cb) swap(&ba, &cb);
-    if (cb > ac) swap(&cb, &ac);
-    if (ba > cb) swap(&ba, &cb);
+    if (ac > cb) swap(&cb, &ac);
 
-    if (fabs(ba + cb - ac) < EPS)
+    if (fabs(ba + ac - cb) < EPS)
     {
         type = -1;
     }
     else
     {
-        if (fabs(ac * ac - ba * ba - cb * cb) < EPS)
+        if (fabs(cb * cb - ba * ba - ac * ac) < EPS)
         {
             type = 1;
         }
-        else if(ac * ac > ba * ba - cb * cb)
+        else if(cb * cb > ba * ba - ac * ac)
         {
             type = 2;
         }

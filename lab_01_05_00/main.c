@@ -3,31 +3,31 @@
 #define ERR_NO 0
 #define ERR_INPUT 1
 
-int my_pow(int, unsigned);
+long long int my_pow(long long int, long long int);
 
 int main(void)
 {
-    int a;
-    unsigned n;
+    long long int a;
+    long long int n;
     int rc = ERR_NO;
 
-    if (scanf("%d%u", &a, &n) != 2 && n)
+    if ((scanf("%lld%lld", &a, &n) != 2) || (n < 0))
     {
         rc = ERR_INPUT;
     }
 
     if (rc == ERR_NO)
     {
-        printf("%d", my_pow(a, n));
+        printf("%lld", my_pow(a, n));
     }
 
     return rc;
 }
 
-int my_pow(int a, unsigned n)
+long long int my_pow(long long int a, long long int n)
 {
-    int result = 1;
-    for (int i = 0; i < n; ++i)
+    long long int result = 1;
+    for (long long int i = 0; i < n; ++i)
     {
         result *= a;
     }
