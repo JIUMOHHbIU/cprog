@@ -20,12 +20,12 @@ int main(void)
     return rc;
 }
 
-double gx(int* success)
+double gx(int *success)
 {
     double x, sum = 0;
     int n = 0;
     int is_ended = 0;
-    for (; (*success) && !is_ended; )
+    for (; (*success) && !is_ended;)
     {
         if (scanf("%lf", &x) != 1)
         {
