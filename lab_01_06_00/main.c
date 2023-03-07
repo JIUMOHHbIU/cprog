@@ -18,6 +18,7 @@ int main(void)
     double xa, ya, xb, yb, xc, yc;
     int rc = ERR_NO;
 
+    printf("Enter vertex coords:\n");
     if (scanf("%lf%lf%lf%lf%lf%lf", &xa, &ya, &xb, &yb, &xc, &yc) != 6)
     {
         rc = ERR_INPUT;
@@ -33,7 +34,7 @@ int main(void)
 
     if (rc == ERR_NO)
     {
-        printf("%d", type);
+        printf("Type of triangle: %d\n", type);
     }
 
     return rc;

@@ -11,6 +11,7 @@ int main(void)
     long long int n;
     int rc = ERR_NO;
 
+    printf("Enter values 'a' and 'n':\n");
     if ((scanf("%lld%lld", &a, &n) != 2) || (n <= 0))
     {
         rc = ERR_INPUT;
@@ -18,7 +19,7 @@ int main(void)
 
     if (rc == ERR_NO)
     {
-        printf("%lld", my_pow(a, n));
+        printf("a to the n_th power: %lld\n", my_pow(a, n));
     }
 
     return rc;

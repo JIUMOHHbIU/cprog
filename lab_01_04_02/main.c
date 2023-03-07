@@ -5,6 +5,7 @@
 int main(void)
 {
     long global_seconds;
+    printf("Enter time in seconds:\n");
     scanf("%ld", &global_seconds);
 
     int hours, minutes, seconds;
@@ -13,7 +14,7 @@ int main(void)
     minutes = global_seconds / 60 % 60;
     seconds = global_seconds % 60;
 
-    printf("%d %d %d", hours, minutes, seconds);
+    printf("Time in h_m_s format: %d %d %d\n", hours, minutes, seconds);
 
     return ERR_NO;
 }

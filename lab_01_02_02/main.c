@@ -6,6 +6,7 @@
 int main(void)
 {
     double xa, ya, xb, yb, xc, yc;
+    printf("Point's coords:\n");
     scanf("%lf%lf%lf%lf%lf%lf", &xa, &ya, &xb, &yb, &xc, &yc);
 
     float circum = sqrt(pow(yb - ya, 2) + pow(xb - xa, 2)) +
