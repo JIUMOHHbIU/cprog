@@ -4,7 +4,7 @@
 #define ERR_NO 0
 #define ERR_INPUT 1
 
-#define eps 1e-6
+#define EPS 1e-6
 
 double gx(int*);
 
@@ -35,7 +35,7 @@ double gx(int *success)
         {
             *success = 0;
         }
-        else if (x > -eps)
+        else if (x > -EPS)
             sum += sqrt(++n + x);
         else
             is_ended = 1;
