@@ -15,8 +15,10 @@ int main(void)
     if (!success)
         rc = ERR_INPUT;
 
-    printf("%lf", gx_value);
-
+    if (rc == ERR_NO)
+    {
+        printf("%.6lf\n", gx_value);
+    }
     return rc;
 }
 
