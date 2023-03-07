@@ -39,6 +39,6 @@ double gx(int *success)
             is_ended = 1;
     }
 
-    *success &= n;
+    *success *= n;
     return sum / n;
 }
