@@ -4,7 +4,7 @@
 #define ERR_NO 0
 #define ERR_INPUT 1
 
-double evaluate_approx(double, double, double);
+double evaluate_approx(double, double);
 
 int main(void)
 {
@@ -18,7 +18,7 @@ int main(void)
     if (rc == ERR_NO)
     {
         double fx = exp(x);
-        double sx = evaluate_approx(x, epsilon, fx);
+        double sx = evaluate_approx(x, epsilon);
 
         double deviation = fabs(fx - sx);
         double normalized_deviation = fabs((fx - sx) / fx);
@@ -30,7 +30,7 @@ int main(void)
     return rc;
 }
 
-double evaluate_approx(double x, double epsilon, double fx)
+double evaluate_approx(double x, double epsilon)
 {
     double result = 0, a_i = 1;
     for (int i = 1; fabs(a_i) >= epsilon; result += a_i, a_i *= x / i, ++i);
