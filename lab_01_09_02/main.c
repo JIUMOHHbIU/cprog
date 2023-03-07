@@ -4,6 +4,8 @@
 #define ERR_NO 0
 #define ERR_INPUT 1
 
+#define eps 1e-6
+
 double gx(int*);
 
 int main(void)
@@ -27,13 +29,13 @@ double gx(int *success)
     double x, sum = 0;
     int n = 0;
     int is_ended = 0;
-    for (; (*success) && !is_ended;)
+    while ((*success) && !is_ended)
     {
         if (scanf("%lf", &x) != 1)
         {
             *success = 0;
         }
-        else if (x >= 0)
+        else if (x > -eps)
             sum += sqrt(++n + x);
         else
             is_ended = 1;
