@@ -37,9 +37,8 @@ unsigned int cyclic_shift_number(unsigned int number, int n)
     return new_number;
 }
 
-void print_bin_number(unsigned int)
+void print_bin_number(unsigned int new_number)
 {
-
     printf("Result: ");
     for (int i = FOUR_BYTES - 1; i > -1; i--)
     {

@@ -27,15 +27,15 @@ int main(void)
 
 int hours_from_global_secs(int global_seconds)
 {
-	return global_seconds / 3600;
+    return global_seconds / 3600;
 }
 
 int minutes_from_global_secs(int global_seconds)
 {
-	return global_seconds / 60 % 60;
+    return global_seconds / 60 % 60;
 }
 
 int seconds_from_global_secs(int global_seconds)
 {
-	return global_seconds % 60;
+    return global_seconds % 60;
 }
