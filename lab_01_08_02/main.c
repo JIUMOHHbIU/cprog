@@ -7,6 +7,8 @@
 
 unsigned int cyclic_shift_number(unsigned int, int);
 
+void print_bin_number(unsigned int);
+
 int main(void)
 {
     unsigned int number;
@@ -21,13 +23,7 @@ int main(void)
     if (rc == ERR_NO)
     {
         unsigned int new_number = cyclic_shift_number(number, n);
-
-        printf("Result: ");
-        for (int i = FOUR_BYTES - 1; i > -1; i--)
-        {
-            printf("%d", (new_number >> i) % 2);
-        }
-        printf("\n");
+        print_bin_number(new_number);
     }
 
     return rc;
@@ -41,3 +37,13 @@ unsigned int cyclic_shift_number(unsigned int number, int n)
     return new_number;
 }
 
+void print_bin_number(unsigned int)
+{
+
+    printf("Result: ");
+    for (int i = FOUR_BYTES - 1; i > -1; i--)
+    {
+        printf("%d", (new_number >> i) % 2);
+    }
+    printf("\n");
+}
