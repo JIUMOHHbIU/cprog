@@ -11,15 +11,6 @@ double gx(int*);
 int main(void)
 {
     int rc = ERR_NO;
-    int *pointer = NULL;
-
-    if (1)
-    {
-        int value = 20;
-        pointer = &value;
-    }
-    *pointer = 42;
-
     int success = 1;
     double gx_value = gx(&success);
     if (!success)
