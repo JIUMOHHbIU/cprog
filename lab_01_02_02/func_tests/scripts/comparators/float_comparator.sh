@@ -28,9 +28,6 @@ fi
 
 pattern="^[+-]*(([0-9]+[.]?[0-9]*)|([0-9]*[.]?[0-9]+))([eE][+-]?[0-9]+)?$"
 
-h1=""
-h2=""
-
 tmpfile1=`mktemp /tmp/tfile1.XXXXXX`
 tmpfile2=`mktemp /tmp/tfile2.XXXXXX`
 echo > $tmpfile1

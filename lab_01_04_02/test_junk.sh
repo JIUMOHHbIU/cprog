@@ -8,16 +8,17 @@ if [ $? == "0" ]; then
 
 else
 	echo -e BUILD "\033[1;31m(FAILED)\033[0m"
-	rc=1
-	exit rc
+        ./clean.sh
+	exit 1
 fi
 
-user_func_testing=$(./check_scripts.sh)
+./check_scripts.sh
 if [ $? == "0" ]; then
 	echo -e USER FUNC TESTING "\033[1;32m(PASSED)\033[0m"
 else
 	echo -e USER FUNC TESTING "\033[1;31m(FAILED)\033[0m"
-	rc=1
+        ./clean.sh
+	exit 1
 fi
 ./check_scripts.sh
 

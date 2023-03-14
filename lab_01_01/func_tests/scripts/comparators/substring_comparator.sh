@@ -29,17 +29,17 @@ fi
 tmpfile1=`mktemp /tmp/tfile1.XXXXXX`
 tmpfile2=`mktemp /tmp/tfile2.XXXXXX`
 
-cat $1 | grep -oz string:.* | sed 's/\x00//g' > $tmpfile1
-cat $2 | grep -oz string:.* | sed 's/\x00//g' > $tmpfile2
+cat $1 | grep -oz 'string:.*' | sed 's/\x00//g' > $tmpfile1
+cat $2 | grep -oz 'string:.*' | sed 's/\x00//g' > $tmpfile2
 
 if [ "$(wc -c < $tmpfile1)" == "0" ]; then
-    echo >&2 'Входной файл 1 не содержат подстрок вида "«Result:"'
+    echo >&2 'Входной файл 1 не содержат подстрок вида "«Result: "'
     rm -f tmpfile1 tmpfile2
     exit 160
 fi 
 
 if [ "$(wc -c < $tmpfile2)" == "0" ]; then
-    echo >&2 'Входной файл 2 не содержат подстрок вида "«Result:"'
+    echo >&2 'Входной файл 2 не содержат подстрок вида "«Result: "'
     rm -f tmpfile1 tmpfile2
     exit 160
 fi 
