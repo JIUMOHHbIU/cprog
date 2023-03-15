@@ -1,0 +1,1 @@
+-Wfloat-equal -Wfloat-conversion

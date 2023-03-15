@@ -3,3 +3,5 @@
 *.o
 *.pch
 *.gch
+*cmake-build-debug*
+**/.idea/**
