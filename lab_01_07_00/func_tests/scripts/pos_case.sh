@@ -3,7 +3,6 @@
 tmpfile=`mktemp /tmp/tfile.XXXXXX`
 ./app.exe < $1 > $tmpfile
 status=$?
-echo $status
 if [ $status != "0" ]; then
 	exit $status
 fi
