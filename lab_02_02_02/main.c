@@ -52,7 +52,7 @@ int input_array(int *arr, int *n)
 		}
 		if (!good_input)
 		{
-			rc= ERR_INPUT;
+			rc = ERR_INPUT;
 		}
 	}
 

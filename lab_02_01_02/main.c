@@ -22,7 +22,8 @@ int main()
 	{
 		double result;
 		rc = average_of_negs(arr, n, &result);
-		printf("%.6lf\n", result);
+		if (rc == ERR_NO)
+			printf("%.6lf\n", result);
 	}
 
 	return rc;
@@ -46,7 +47,7 @@ int input_array(int *arr, int *n)
 		}
 		if (!good_input)
 		{
-			rc= ERR_INPUT;
+			rc = ERR_INPUT;
 		}
 	}
 

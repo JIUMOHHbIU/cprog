@@ -32,7 +32,8 @@ int main()
 }
 
 int input_array(int **arr_begin, int **arr_end)
-{	int rc = ERR_NO;
+{	
+	int rc = ERR_NO;
 
 	int n;
 	if (scanf("%d", &n) != 1 || n > 10 || n < 1)
@@ -70,9 +71,11 @@ int evaluate_expression(int *arr_begin, int *arr_end, int *result)
 	int was_occurance = 0;
 	while ((p1 != arr_end) && (p2 != arr_begin - 1) && !has_ended)
 	{
-		while (!(has_ended |= p1 == arr_end) && (*p1 >= 0)) p1++;
+		while (!(has_ended |= p1 == arr_end) && (*p1 >= 0)) 
+			p1++;
 
-		while (!(has_ended |= p2 == arr_begin - 1) && (*p2 <= 0)) p2--;
+		while (!(has_ended |= p2 == arr_begin - 1) && (*p2 <= 0)) 
+			p2--;
 
 		if (!has_ended)
 		{
