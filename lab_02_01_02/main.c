@@ -22,7 +22,7 @@ int main()
 	{
 		double result;
 		rc = average_of_negs(arr, n, &result);
-		printf("%.5lf\n", result);
+		printf("%.6lf\n", result);
 	}
 
 	return rc;
@@ -32,7 +32,7 @@ int input_array(int *arr, int *n)
 {
 	int rc = ERR_NO;
 
-	if (scanf("%d", n) != 1 || *n > 10 || *n < 0)
+	if (scanf("%d", n) != 1 || *n > 10 || *n < 1)
 	{
 		rc = ERR_INPUT;
 	}
@@ -61,8 +61,8 @@ int average_of_negs(int *arr, int n, double *result)
 	int counter_neg = 0;
 	for (int i = 0; i < n; ++i)
 	{
-		counter_neg += i < 0;
-		*result += *(arr + i) * (i < 0);
+		counter_neg += *(arr + i) < 0;
+		*result += *(arr + i) * (*(arr + i) < 0);
 	}
 
 	if (counter_neg)
