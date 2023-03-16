@@ -80,7 +80,7 @@ int is_square(int x)
 	return l * l == x;
 }
 
-int filter_arr(int* new_arr, int* new_n, int* arr, int n)
+int filter_arr(int *new_arr, int *new_n, int *arr, int n)
 {
 	int rc = ERR_NO;
 	*new_n = 0;
