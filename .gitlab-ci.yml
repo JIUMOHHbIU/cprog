@@ -1,6 +1,7 @@
 image: testing
-run:
-  - echo lol
-  - pwd
-  - ls
-  - find . -print
+test:
+  script:
+    - echo lol
+    - pwd
+    - ls
+    - find . -print
