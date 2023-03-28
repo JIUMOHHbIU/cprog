@@ -33,7 +33,7 @@ int input_array(int *arr, int *n)
 {
 	int rc = ERR_NO;
 
-	if (scanf("%d", n) != 1 || *n > 10 || *n < 1)
+	if (scanf("%d", n) != 1 || *n > MAX_N || *n < 1)
 	{
 		rc = ERR_INPUT;
 	}

@@ -38,7 +38,7 @@ int input_array_terminal_char(int *arr, int *n)
 
 	while (scanf("%d", &t) == 1)
 	{
-		if (*n > 9)
+		if (*n > MAX_N - 1)
 		{
 			bad_seq = 1;
 		}
