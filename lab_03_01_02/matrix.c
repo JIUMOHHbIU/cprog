@@ -3,7 +3,7 @@
 #include "rc.h"
 #include "matrix.h"
 
-int input_matrix(Matrix matrix, int *n, int *m)
+int input_matrix(my_matrix matrix, int *n, int *m)
 {
 	int rc = ERR_NO;
 	if (scanf("%d", n) != 1 || *n > MAX_N_MATRIX || *n < 1)

@@ -4,24 +4,29 @@
 #include "matrix.h"
 #include "array.h"
 
-void process_columns(Matrix matrix, int n, int m, int *arr)
+void process_columns(my_matrix matrix, int n, int m, int *arr)
 {
 	for (int j = 0; j < m; ++j)
 	{
-		*(arr + j) = 1;
-		int value = *(*(matrix + 0) + j);
+		*(arr + j) = 0;
 
-		for (int i = 1; i < n; ++i)
+		if (n > 1)
 		{
-			*(arr + j) *= value * *(*(matrix + i) + j) < 0;
-			value = *(*(matrix + i) + j);
+			*(arr + j) =  1;
+			int value = *(*(matrix + 0) + j);
+
+			for (int i = 1; i < n; ++i)
+			{
+				*(arr + j) *= value * *(*(matrix + i) + j) < 0;
+				value = *(*(matrix + i) + j);
+			}
 		}
 	}
 }
 
 int main()
 {
-	Matrix matrix;
+	my_matrix matrix;
 	int n, m;
 
 	int rc = input_matrix(matrix, &n, &m);
