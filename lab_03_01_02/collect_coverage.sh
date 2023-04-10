@@ -8,6 +8,12 @@ gcc -std=c99 $command_line_args -g -c -O0 -fprofile-arcs -ftest-coverage *.c
 gcc -O0 -fprofile-arcs -ftest-coverage -o app.exe *.o -lm
 ./check_scripts.sh > /dev/null
 
+./clean.sh
+
+gcc -std=c99 $command_line_args -g -DDEBUG -c -O0 -fprofile-arcs -ftest-coverage *.c
+gcc -O0 -fprofile-arcs -ftest-coverage -o app.exe *.o -lm
+./check_scripts.sh > /dev/null
+
 for ss in *.c; do
 	coverage=$(gcov $ss)
 	coverage=$(echo $coverage | grep -Eo '[0-9]+\.[0-9]+%')
