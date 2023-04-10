@@ -12,7 +12,7 @@ void process_columns(my_matrix matrix, int n, int m, int *arr)
 
 		if (n > 1)
 		{
-			*(arr + j) =  1;
+			*(arr + j) = 1;
 			int value = *(*(matrix + 0) + j);
 
 			for (int i = 1; i < n; ++i)
