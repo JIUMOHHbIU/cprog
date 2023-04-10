@@ -39,9 +39,7 @@ int main()
 		print_array(arr, m);
 	}
 
-#ifdef DEBUG
 	view_rc(rc);
-#endif
 
 	return rc;
 }
