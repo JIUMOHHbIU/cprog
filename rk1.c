@@ -32,13 +32,13 @@ int main(void)
 		int is_good_matr = check_all_cells(matr, n);
 		print_matrix(matr, n);
 
-		if (is_good_matr)
+		if (is_good_matr == 0)
 		{
 			printf("Good matrix\n");
 		}
 		else
 		{
-			printf("Bad matrix\n");
+			printf("Bad matrix\n%d errors were detected\n", is_good_matr / 2);
 		}
 	}
 	else
@@ -51,7 +51,7 @@ int main(void)
 
 int check_all_cells(int matr[][MAX_N], int n)
 {
-	int is_good_matr = 1;
+	int is_good_matr = 0;
 
 	for (int i = 1; i <= n; ++i)
 	{
@@ -59,17 +59,17 @@ int check_all_cells(int matr[][MAX_N], int n)
 		{
 			if (matr[i][j])
 			{
-				is_good_matr *= matr[i + 1][j + 1] == 0;
-				is_good_matr *= matr[i - 1][j + 1] == 0;
-				is_good_matr *= matr[i + 1][j - 1] == 0;
-				is_good_matr *= matr[i - 1][j - 1] == 0;
+				is_good_matr += !(matr[i + 1][j + 1] == 0);
+				is_good_matr += !(matr[i - 1][j + 1] == 0);
+				is_good_matr += !(matr[i + 1][j - 1] == 0);
+				is_good_matr += !(matr[i - 1][j - 1] == 0);
 
-				is_good_matr *= matr[i - 1][j] == matr[i][j] || !matr[i - 1][j];
-				is_good_matr *= matr[i + 1][j] == matr[i][j] || !matr[i + 1][j];
-				is_good_matr *= matr[i][j - 1] == matr[i][j] || !matr[i][j - 1];
-				is_good_matr *= matr[i][j + 1] == matr[i][j] || !matr[i][j + 1];
+				is_good_matr += !(matr[i - 1][j] == matr[i][j] || !matr[i - 1][j]);
+				is_good_matr += !(matr[i + 1][j] == matr[i][j] || !matr[i + 1][j]);
+				is_good_matr += !(matr[i][j - 1] == matr[i][j] || !matr[i][j - 1]);
+				is_good_matr += !(matr[i][j + 1] == matr[i][j] || !matr[i][j + 1]);
 
-				is_good_matr *= !((matr[i - 1][j] || matr[i + 1][j]) && (matr[i][j - 1] || matr[i][j + 1]));
+				is_good_matr += ((matr[i - 1][j] || matr[i + 1][j]) && (matr[i][j - 1] || matr[i][j + 1]));
 
 			}
 		}
