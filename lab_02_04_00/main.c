@@ -12,6 +12,8 @@ void bubble_sort(int*, int);
 
 void print_array(int*, int);
 
+void swap(int*, int*);
+
 int main()
 {
 	int rc = ERR_NO;
@@ -60,6 +62,13 @@ int input_array_terminal_char(int *arr, int *n)
 	return rc;
 }
 
+void swap(int *left, int *right)
+{
+	int t = *left;
+	*left = *right;
+	*right = t;
+}
+
 void bubble_sort(int *arr, int n)
 {
 	for (int i = 0; i < n - 1; ++i)
@@ -68,9 +77,7 @@ void bubble_sort(int *arr, int n)
 		{
 			if (*(arr + j) > *(arr + j + 1))
 			{
-				int t = *(arr + j);
-				*(arr + j) = *(arr + j + 1);
-				*(arr + j + 1) = t;
+				swap(arr + j, arr + j + 1);
 			}
 		}
 	}
